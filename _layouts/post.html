@@ -1,0 +1,39 @@
+---
+layout: blog
+---
+
+{% if page.draft %}
+<p><em>This is a draft. The author may improve this from time to time.</em></p>
+{% endif %}
+<h1>{{ page.title }}</h1>
+<p class="meta">{{ page.date | date_to_string }}</p>
+<p><em>
+  {%- if page.categories.size > 0 -%}
+    In: {% for category in page.categories -%}
+      <a href="/blog/category.html#category-{{ category }}">{{ category }}</a> 
+    {% endfor %}
+  {%- endif -%}
+</em></p>
+
+<div class="post">
+  {{ content }}
+</div>
+
+<br clear="all" />
+<div>
+  {% if page.next %}
+    <div class="fr"><a href="{{ page.next.url }}">{{ page.next.title }}</a> &gt;</div>
+  {% endif %}
+  {% if page.previous %}
+    <div class="fl">&lt; <a href="{{ page.previous.url }}">{{ page.previous.title }}</a></div>
+  {% endif %}
+</div>
+
+<script>
+  var ele = document.getElementsByTagName("a");
+  for (i = 0; i < ele.length; i++) {
+      if (/^A\d{6}/.test(ele[i].innerText)) {
+        ele[i].setAttribute("href", "https://oeis.org/" + ele[i].innerText);
+      }
+  };
+</script>

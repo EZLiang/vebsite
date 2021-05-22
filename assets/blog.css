@@ -1,0 +1,83 @@
+h1.format {
+  width: 100%;
+  height: 2em;
+  text-align: center;
+  text-anchor: middle;
+  vertical-align: middle;
+  font-size: 4rem;
+  line-height: 2em;
+  background: #6cf;
+  background-clip: border-box;
+  border-radius: 0.2em;
+  box-shadow: 0px 0px 0.5em 0.5em #6cf;
+  font-family: monospace;
+}
+
+a {
+  color: rgb(0, 80, 185);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h1.format > a {
+  text-decoration: none;
+  color: black;
+}
+
+#container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#post {
+  margin: 2rem;
+  float: left;
+  padding: 1rem;
+  flex: 4;
+  min-width: 40rem;
+  font-size: 1rem;
+}
+
+#sidebar {
+  float: right;
+  font-size: 0.9rem;
+  flex: 1;
+  min-width: 15rem;
+}
+
+#sidebar p {
+  font-weight: bold;
+}
+
+abbr {
+  text-decoration: dotted;
+}
+
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+.fl, .fr {
+  padding: 0.5rem;
+  border-radius: 0.3rem;
+  border: 1px solid gray;
+  font-size: 1rem;
+}
+
+.quot {
+  border: 1px outset lightgreen;
+  border-radius: 0.5rem;
+  background-color: #f0ffff; 
+  padding: 0.5rem;
+}
+
+.stk {
+  text-decoration: line-through;
+}

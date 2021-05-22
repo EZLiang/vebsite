@@ -1,0 +1,47 @@
+---
+layout: post
+title: The extended Xi function
+categories: math googology
+mathjax: true
+---
+
+<h1>Order-order-\(\operatorname{On}\) \(\Xi\) function</h1>
+
+<p>Today, we're gonna make an extension of APG's \(\Xi\) function using ordinals! Unfortunately, once ordinals get involved, its impossible to stop, and you end up making naive extensions diagonalizing over iterated diagonalizations, so I'll leave those to somebody else.</p>
+
+<p>We assume that the reader is familiar with combinator calculus, and the entire content of <a href="https://cp4space.hatsya.com/2013/01/06/fast-growing-4/">this post by APG</a>.</p>
+
+<h2>Order-\(n\) oracles</h2>
+
+<p>First, let's make a system of generalisations of the oracles. The first oracle, \(\Omega_0\), id defined by \(\Omega_0xyz\) reducing to \(y\) is \(x\) reduces to \(I\), and \(z\) otherwise.</p>
+
+<p>Then this can create paradoxes. So we add another oracle. Then that creates more paradoxes, and so on. We will define a consistent system of oracles.</p>
+
+<p>We define \(\Omega_n\), for \(n>0\), as a combinator similar to \(\Omega_0\) but it checks for paradoxes. Each checks for all paradoxes that it can check for without creating another paradox.</p>
+
+<h2>Ordinals and the \(P\) combinator</h2>
+
+<p>Nothing in that previous definition stops \(n\) from being an infinite ordinal! But once ordinals are involved, the \(\Omega_\alpha\) combinatorial calculus seems a bit weak, as any expression can only invose a set of predefined oracles.</p>
+
+<h3>The solution: \(Pxyzwv\)</h3>
+
+<p>To solve this, we define a new combinator, \(P\). Once we do this, we can remove the original oracles. Why \(P\)? Because there's no greek letter after \(\Omega\), so we have to switch alphabets. \(Pxyzwv\) reduces as follows:</p>
+
+<ul>
+<li>If \(x\) is not an ordinal, then it reduces to \(v\).</li>
+<li>If \(x\) is an ordinal, then it reduces to the result of \(\Omega_xyzw\)</li>
+</ul>
+
+<h4>But how do you encode ordinals into \(SKIP\) calculus?</h4>
+
+<p>Good question. Our method generalizes the Chruch numerals, and resembles Kleene's \(\mathcal{O}\), so we will call this system the Church-Kleene ordinals (confusing name! :P). There are also some resemblances with the fast-growing heirarchy, interestingly.</p>
+
+<p>We assume the reader is familiar with the Church numerals. In what follows, \(n\) is ALWAYS a Chruch numeral, so in particular, the action of Church-Kleene ordinals in many circumstances is undefined.</p>
+
+<p>Church-Kleene ordinals are defined recursively as follows:</p>
+
+<ul>
+<li>If \(xyn\) reduces to \(n\), then \(x\) is an ordinal and it represent zero.</li>
+<li>If \(xyn\) reduces to something equvalent to \(y(zyn)\) for some ordinal \(z\), then \(x\) is an ordinal and it represents \(z+1\).</li>
+<li>If \(xyn\) reduces to something equivalent to \(a_nyn\), where \(a_n\) is an ordinal and the \(a_i\) are strictly increasing, then \(x\) is an ordinal and it represent \(\sup a_i\).</li>
+</ul>
