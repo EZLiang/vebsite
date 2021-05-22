@@ -11,3 +11,35 @@ h3 {font-size: 2rem}
 h4 {font-size: 1.6rem}
 h5 {font-size: 1.3rem; color: #333}
 h6 {font-size: 1.15rem; color: #666}
+
+.nav {
+    background: rgb(31, 133, 0);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+}
+
+.nav a {
+    text-decoration: none;
+    color: #fff;
+    background: none;
+}
+
+.nav a:hover {
+    text-decoration: underline;
+    background: #333;
+}
+
+.nav > span {
+    color: #fff;
+    background: none
+}
+
+.nav > span > a {
+    display: none;
+}
+
+.nav > span:hover > a {
+    display: block;
+}
