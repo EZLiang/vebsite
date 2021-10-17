@@ -25,12 +25,13 @@ mathjax: true
 
 <p>
     Here, the \(\eta\) function is a function used to define large cardinals similarly.
-    Let \(\Lambda_0=1\), and otherwise \(\Lambda_\alpha\) be an ordinal guaranteed to be greater than any \(\eta_\beta\) for \(\beta&lt;\alpha\).
-    The \(\eta_\nu(\alpha)\) is the least cardinal greater than any ordinal constructible by the folllowing:
+    Let \(\Lambda_0=1\), and otherwise \(\Lambda_\alpha\) be sequence of sufficiently large cardinals (not to be confused with large cardinals, though most large cardinals should work.).
+    Let \(C_\nu(\alpha)\) be the set of ordinals constructible by the folllowing:
     <ul>
         <li>All ordinals less than \(\Lambda_\nu\)</li>
         <li>Summing two previously contructed ordinals</li>
         <li>\(\psi_\beta(\gamma)\) for two previously constructed ordinals \(\beta,\gamma\), subject to \(\gamma\le\alpha\)</li>
         <li>\(\eta_\beta(\gamma)\) for two previously contructed ordinals \(\beta,\gamma\) with \(\gamma&lt;\alpha\)</li>
     </ul>
+    Then \(\eta_\nu(\alpha)\) is the smallest cardinal greater than all of \(C_\nu(\alpha)\cap\Lambda_{\nu+1}\).
 </p>
