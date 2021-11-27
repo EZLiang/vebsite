@@ -9,9 +9,9 @@ layout: blog
 <p class="meta">{{ page.date | date_to_string }}</p>
 <p><em>
   {%- if page.categories.size > 0 -%}
-    In: {% for category in page.categories -%}
-      <a href="/blog/category.html#category-{{ category }}">{{ category }}</a> 
-    {% endfor %}
+    In: <ul>{% for category in page.categories -%}
+      <li style="display: inline;"><a href="/blog/category.html#category-{{ category }}">{{ category }}</a></li> 
+    {% endfor %}</ul>
   {%- endif -%}
 </em></p>
 
