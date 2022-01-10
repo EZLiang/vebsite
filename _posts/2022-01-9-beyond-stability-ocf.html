@@ -1,0 +1,205 @@
+---
+layout: post
+title: Beyond the stability OCFs
+category: math ordinals googology
+---
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<p><em>The post is meant to extend <a href="https://googology.fandom.com/wiki/User_blog:Hyp_cos/Attempt_of_OCF_up_to_Stability">https://googology.fandom.com/wiki/User_blog:Hyp_cos/Attempt_of_OCF_up_to_Stability</a>.</em></p>
+<p>
+    Firstly, I'll verify that it's worth extending.
+    I compared it with the other OCFs (Stegert, Duchhardt).
+    It is virtually identical to Stegert, if we associate the second reflection instance element be the position in the hierarchy.
+    The only worrying difference is that Stegert's hierarchies require their elements to be "big" relative to \(\mathbb{X}\).
+    This shouldn't be a major problem, as the ability of Hyp cos's system to intersect collapsing hierarchies should make up for it.
+    Duchhardt uses ordinals instead 
+</p>
+
+<h1>Up to \(\lambda x.\Gamma_{x+1}\)-stable</h1>
+<p>
+    We use a \((+)\)-stable ordinal to diagonalize.
+    \(K\) is the least such ordinal.
+    The reason why we need this ordinal is that we have weakened the \(S\) function, without \(K\) it the OCF would only reach \(+\text{constant}\)-stable.
+</p>
+<p>
+    Reflection instances are defined by:
+    <ul>
+        <li>\(()\) is a reflection instance</li>
+        <li>If \(\mathbb{X}\) and \(\mathbb{Y}\) are reflection instances, then \((\mathbb{X},\alpha,\mathbb{Y},\beta,n)\) is a reflection instance.</li>
+    </ul>
+    Variables of a reflection instance are defined by:
+    <ul>
+        <li>\(v(())=\varnothing\)</li>
+        <li>\(v((\mathbb{X},\alpha,\mathbb{Y},\beta,n))=v(\mathbb{X})\cup v(\mathbb{Y})\cup\{\alpha,\beta\}\)</li>
+    </ul>
+    Inductive variables of a reflection instance are defined by:
+    <ul>
+        <li>\(iv(())=\varnothing\)</li>
+        <li>\(iv((\mathbb{X},\alpha,\mathbb{Y},\beta,n))=iv(\mathbb{X})\cup iv(\mathbb{Y})\cup\{\alpha\}\)</li>
+    </ul>
+    \(r_\alpha[S]\) denotes the class of reflection configurations \(\{\mathbb{X}:v(\mathbb{X})\subseteq S\land iv(\mathbb{X})\subseteq\alpha\}\).
+</p>
+<p>
+    \(C(\alpha,\beta)\) is defined as follows:
+    <ul>
+        <li>\(C_0(\alpha,\beta)=\beta\cup\{0,K\}\)</li>
+        <li>\(C_{n+1}(\alpha,\beta)=\{\gamma,S_\gamma(\delta,n),\gamma+\delta,\phi_\gamma(\delta),\psi_\gamma(\mathbb{X},\epsilon):\gamma,\delta,\epsilon\in C_n(\alpha,\beta)\land\epsilon&lt;\alpha\land\mathbb{X}\in r_\alpha[C_n(\alpha,\beta)]\}\)</li>
+        <li>\(C(\alpha,\beta)=\bigcup C_n(\alpha,\beta)\)</li>
+    </ul>
+</p>
+<p>
+    \(\Pi^\beta_n[S]\) represents the set of ordinals \(\beta\)-\(\Pi_n\)-reflecting on \(S\).
+    Define the function hierarchies \(f^\beta_\pi\) as follows:
+    <ul>
+        <li>\(f^0_\pi=0\)</li>
+        <li>\(f^\beta_\pi\) is a partial function on ordinals \(\kappa\) with \(C(\beta,\kappa)\cap\pi=\kappa\) such that \(f^\beta_\pi(\kappa)\) is the least ordinal for which for all \(\gamma\in C(\beta,\kappa)\cap\beta\), \(f^\gamma_\pi(\kappa)&lt;f^\beta_\pi(\kappa)\).</li>
+    </ul>
+    \(S_\pi(\beta,n)\) is the least \(\kappa\) that is \(f^\beta_\pi(\kappa)\)-\(\Pi_n\)-reflecting.
+</p>
+<p>
+    Define collapsing sets \(A_\pi\mathbb{X}\) as follows:
+    <ul>
+        <li>\(A_\pi()=\pi\)</li>
+        <li>\(A_\pi(\mathbb{X},0,\mathbb{Y},\beta,n)=A_\pi\mathbb{X}\cap A_\pi\mathbb{Y}\)</li>
+        <li>
+            If \(\alpha&gt;0\), \(A_\pi(\mathbb{X},\alpha,\mathbb{Y},\beta,n)\) consists of ordinals \(\kappa\) such that:
+            <ul>
+                <li>\(\kappa\in A_\pi\mathbb{X}\)</li>
+                <li>\(C(\alpha,\kappa)\cap\pi=\kappa\)</li>
+                <li>For all \(\gamma\in C(\alpha,\kappa)\cap\alpha\), \(\kappa\in\Pi^{f^\beta_\pi(\kappa)}_n[A_\pi(\mathbb{X},\gamma,\mathbb{Y},\beta,n)]\)</li>
+            </ul>
+        </li>
+    </ul>
+</p>
+<p>Define the collapsing functions \(\psi_\pi(\mathbb{X},\alpha)\) as the smallest member \(\beta\) of \(A_\pi\mathbb{X}\) such that \(C(\alpha,\beta)\cap\pi=\beta\).</p>
+
+<h1>Up to a nonprojectible</h1>
+<p>
+    We can massively increase the strength by adding an argument to \(\psi\).
+    We will also need to modify the function hierarchies to prevent them from diverging from their intended meaning.
+    \(K\) is the least nonprojectible.
+</p>
+<p>
+    Reflection instances are defined by:
+    <ul>
+        <li>\(()\) is a reflection instance</li>
+        <li>If \(\mathbb{X}\) and \(\mathbb{Y}\) are reflection instances, then \((\mathbb{X},\alpha,\mathbb{Y},\beta,n)\) is a reflection instance.</li>
+    </ul>
+    Variables of a reflection instance are defined by:
+    <ul>
+        <li>\(v(())=\varnothing\)</li>
+        <li>\(v((\mathbb{X},\alpha,\mathbb{Y},\beta,n))=v(\mathbb{X})\cup v(\mathbb{Y})\cup\{\alpha,\beta\}\)</li>
+    </ul>
+    Inductive variables of a reflection instance are defined by:
+    <ul>
+        <li>\(iv(())=\varnothing\)</li>
+        <li>\(iv((\mathbb{X},\alpha,\mathbb{Y},\beta,n))=iv(\mathbb{X})\cup iv(\mathbb{Y})\cup\{\alpha\}\)</li>
+    </ul>
+    \(r_\alpha[S]\) denotes the class of reflection configurations \(\{\mathbb{X}:v(\mathbb{X})\subseteq S\land iv(\mathbb{X})\subseteq\alpha\}\).
+    The degree of a reflection instance is defined by:
+    <ul>
+        <li>\(d(())=\varnothing\)</li>
+        <li>\(d((\mathbb{X},\alpha,\mathbb{Y},\beta,n))=d(\mathbb{X})\cup d(\mathbb{Y})\cup\{\beta\}\)</li>
+    </ul>
+</p>
+<p>
+    \(C(\alpha,\beta)\) is defined as follows:
+    <ul>
+        <li>\(C_0(\alpha,\beta)=\beta\cup\{0,K\}\)</li>
+        <li>\(C_{n+1}(\alpha,\beta)=\{\gamma,S(\gamma,n),\gamma+\delta,\psi_\gamma^{\mathbb{X},\epsilon}(\delta):\gamma,\delta,\epsilon\in C_n(\alpha,\beta)\land\epsilon&lt;\alpha\land\mathbb{X}\in r_\alpha[C_n(\alpha,\beta)]\}\)</li>
+        <li>\(C(\alpha,\beta)=\bigcup C_n(\alpha,\beta)\)</li>
+    </ul>
+</p>
+<p>
+    \(\Pi^\beta_n[S]\) represents the set of ordinals \(\beta\)-\(\Pi_n\)-reflecting on \(S\).
+    Define the function hierarchies \(f^\beta_\pi\) as follows:
+    <ul>
+        <li>\(f^0_\pi=0\)</li>
+        <li>\(f^\beta_\pi\) is a partial function on ordinals \(\kappa\) with \(C(\beta,\kappa)\cap\pi=\kappa\) such that \(f^\beta_\pi(\kappa)\) is the least ordinal for which for all \(\gamma\in C(\beta,\kappa)\cap\beta\), \(f^\gamma_\pi(\kappa)&lt;f^\beta_\pi(\kappa)\).  In addition, if \(\beta\) is a value of \(\psi_\pi^{\mathbb{X},\delta}\) with \(d(\mathbb{X})\subseteq\beta\) then so is \(f^\beta_\pi(\kappa)\)</li>
+    </ul>
+    \(S_\pi(\beta,n)\) is the least \(\kappa\) that is \(f^\beta_\pi(\kappa)\)-\(\Pi_n\)-reflecting.
+</p>
+<p>
+    Define collapsing sets \(A_\pi\mathbb{X}\) as follows:
+    <ul>
+        <li>\(A_\pi()=\pi\)</li>
+        <li>\(A_\pi(\mathbb{X},0,\mathbb{Y},\beta,n)=A_\pi\mathbb{X}\cap A_\pi\mathbb{Y}\)</li>
+        <li>
+            If \(\alpha&gt;0\), \(A_\pi(\mathbb{X},\alpha,\mathbb{Y},\beta,n)\) consists of ordinals \(\kappa\) such that:
+            <ul>
+                <li>\(\kappa\in A_\pi\mathbb{X}\)</li>
+                <li>\(C(\alpha,\kappa)\cap\pi=\kappa\)</li>
+                <li>For all \(\gamma\in C(\alpha,\kappa)\cap\alpha\), \(\kappa\in\Pi^{f^\beta_\pi(\kappa)}_n[A_\pi(\mathbb{X},\gamma,\mathbb{Y},\beta,n)]\)</li>
+            </ul>
+        </li>
+    </ul>
+</p>
+<p>Define the collapsing functions \(\psi_\pi^{\mathbb{X},\alpha}(\beta)\) as the smallest member \(\gamma\) of \(A_\pi\mathbb{X}\) above \(\beta\) such that \(C(\alpha,\gamma)\cap\pi=\gamma\).</p>
+
+<h1>Up to \(\alpha\)-stable (and beyond)</h1>
+<p>
+    I turns out that another minor modification vastly increases the strength.
+    \(K\) is the least 2-1-stable.
+</p>
+<p>
+    Reflection instances are defined by:
+    <ul>
+        <li>\(()\) is a reflection instance</li>
+        <li>\((\alpha)\) is a reflection instance</li>
+        <li>If \(\mathbb{X}\) and \(\mathbb{Y}\) are reflection instances, then \((\mathbb{X},\alpha,\mathbb{Y},\beta,n)\) is a reflection instance.</li>
+    </ul>
+    Variables of a reflection instance are defined by:
+    <ul>
+        <li>\(v(())=\varnothing\)</li>
+        <li>\(v((\alpha))=\{\alpha\}\)</li>
+        <li>\(v((\mathbb{X},\alpha,\mathbb{Y},\beta,n))=v(\mathbb{X})\cup v(\mathbb{Y})\cup\{\alpha,\beta\}\)</li>
+    </ul>
+    Inductive variables of a reflection instance are defined by:
+    <ul>
+        <li>\(iv(())=\varnothing\)</li>
+        <li>\(iv((\alpha))=\{\alpha\}\)</li>
+        <li>\(iv((\mathbb{X},\alpha,\mathbb{Y},\beta,n))=iv(\mathbb{X})\cup iv(\mathbb{Y})\cup\{\alpha\}\)</li>
+    </ul>
+    \(r_\alpha[S]\) denotes the class of reflection configurations \(\{\mathbb{X}:v(\mathbb{X})\subseteq S\land iv(\mathbb{X})\subseteq\alpha\}\).
+    The degree of a reflection instance is defined by:
+    <ul>
+        <li>\(d(())=\varnothing\)</li>
+        <li>\(d((\alpha))=\{\alpha\}\)</li>
+        <li>\(d((\mathbb{X},\alpha,\mathbb{Y},\beta,n))=d(\mathbb{X})\cup d(\mathbb{Y})\cup\{\beta\}\)</li>
+    </ul>
+</p>
+<p>
+    \(C(\alpha,\beta)\) is defined as follows:
+    <ul>
+        <li>\(C_0(\alpha,\beta)=\beta\cup\{0,K\}\)</li>
+        <li>\(C_{n+1}(\alpha,\beta)=\{\gamma,S(\gamma,n),\gamma+\delta,\psi_\gamma^{\mathbb{X},\epsilon}(\delta):\gamma,\delta,\epsilon\in C_n(\alpha,\beta)\land\epsilon&lt;\alpha\land\mathbb{X}\in r_\alpha[C_n(\alpha,\beta)]\}\)</li>
+        <li>\(C(\alpha,\beta)=\bigcup C_n(\alpha,\beta)\)</li>
+    </ul>
+</p>
+<p>
+    \(\Pi^\beta_n[S]\) represents the set of ordinals \(\beta\)-\(\Pi_n\)-reflecting on \(S\).
+    Define the function hierarchies \(f^\beta_\pi\) as follows:
+    <ul>
+        <li>\(f^0_\pi=0\)</li>
+        <li>\(f^\beta_\pi\) is a partial function on ordinals \(\kappa\) with \(C(\beta,\kappa)\cap\pi=\kappa\) such that \(f^\beta_\pi(\kappa)\) is the least ordinal for which for all \(\gamma\in C(\beta,\kappa)\cap\beta\), \(f^\gamma_\pi(\kappa)&lt;f^\beta_\pi(\kappa)\).  In addition, if \(\beta\) is a value of \(\psi_\pi^{\mathbb{X},\delta}\) with \(d(\mathbb{X})\subseteq\beta\) then so is \(f^\beta_\pi(\kappa)\)</li>
+    </ul>
+    \(S_\pi(\beta,n)\) is the least \(\kappa\) that is \(f^\beta_\pi(\kappa)\)-\(\Pi_n\)-reflecting.
+</p>
+<p>
+    Define collapsing sets \(A_\pi\mathbb{X}\) as follows:
+    <ul>
+        <li>\(A_\pi()=\pi\)</li>
+        <li>\(A_\pi(\alpha)\) consists of the \(\kappa\) that are \(f^\alpha_\pi(\kappa)\)-ply-stable.</li>
+        <li>\(A_\pi(\mathbb{X},0,\mathbb{Y},\beta,n)=A_\pi\mathbb{X}\cap A_\pi\mathbb{Y}\)</li>
+        <li>
+            If \(\alpha&gt;0\), \(A_\pi(\mathbb{X},\alpha,\mathbb{Y},\beta,n)\) consists of ordinals \(\kappa\) such that:
+            <ul>
+                <li>\(\kappa\in A_\pi\mathbb{X}\)</li>
+                <li>\(C(\alpha,\kappa)\cap\pi=\kappa\)</li>
+                <li>For all \(\gamma\in C(\alpha,\kappa)\cap\alpha\), \(\kappa\in\Pi^{f^\beta_\pi(\kappa)}_n[A_\pi(\mathbb{X},\gamma,\mathbb{Y},\beta,n)]\)</li>
+            </ul>
+        </li>
+    </ul>
+</p>
+<p>Define the collapsing functions \(\psi_\pi^{\mathbb{X},\alpha}(\beta)\) as the smallest member \(\gamma\) of \(A_\pi\mathbb{X}\) above \(\beta\) such that \(C(\alpha,\gamma)\cap\pi=\gamma\).</p>
