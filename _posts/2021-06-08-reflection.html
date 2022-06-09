@@ -1,0 +1,51 @@
+---
+layout: post
+title: An OCF
+categories: math ordinals googology
+mathjax: true
+---
+
+<p>I'm back. Surprise!</p>
+
+<p>I'm making a simplified collapsing functio reaching $\Pi_\omega$-ref.</p>
+
+<p>$K$ denotes the least $+1$-stable,</p>
+
+<p>
+    First, let's set up our reflection configurations.
+    We define them by stating that for ordinal $\kappa$, integer $n>0$, ordinal $\alpha$, and reflection configurations $\mathbb{X},\ldots$,
+    $(\kappa,n,\alpha,\mathbb{X},\ldots)$ is a reflection configuration.
+</p>
+
+<p>The variables of a reflection configuration are all ordinals appearing in the reflection configuration not as a second component, and the inductive variables are the ordinals appearing as a third component.</p>
+
+<p>
+    With reflection configurations, we can then define collapsing hierarchies $\mathcal A$ associated to a reflection configuration $\mathbb X=(\kappa,n,\alpha,\mathbb Y,\ldots)$:
+    <ul>
+        <li>If $\alpha=0$, $\mathcal A\mathbb X=\kappa\cap\mathcal A\mathbb Y\cap\ldots$.</li>
+        <li>
+            Otherwise, $\mathcal A\mathbb X$ is the set of $\pi\in\mathcal A(\kappa,n,0,\mathbb Y,\ldots)$ such that:
+            <ul>
+                <li>$C(\alpha,\pi)\cap\kappa=\pi$,</li>
+                <li>For every $\beta\in C(\alpha,\pi)\cap\alpha$, $\pi$ is $\Pi_n$-reflecting on $\mathcal A(\kappa,n,\beta,\mathbb Y,\ldots)$.</li>
+            </ul>
+        </li>
+    </ul>
+</p>
+
+<p>Collapsing functions are defined by $\psi=\min\mathcal A$.</p>
+
+<p>
+    Then $C(\alpha,\kappa)$ is the closure of $\kappa\cup\{0,K\}$ under:
+    <ul>
+        <li>$\beta+\gamma$,</li>
+        <li>$\omega^\beta$,</li>
+        <li>$\psi\mathbb X$, if all variables of $\mathbb X$ are previously constructed and all inductive variables are less than $\alpha$.</li>
+    </ul>
+</p>
+
+<p>Then $\psi(\omega_1^{CK},1,\varepsilon_{K+1})$ is most likely the proof-theoretic ordinal of $\Pi_\omega$-ref.</p>
+
+<script>MathJax={tex: {inlineMath: [["$", "$"]]}}</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
