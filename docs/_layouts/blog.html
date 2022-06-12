@@ -31,7 +31,7 @@ title: <__site__.Blog object at 0x00000286FB4A0F40>
       {% for month in postsByMonth %}
         {% if bOpenDetails == true %}
           <details open>
-          {% assign bOpenDetails = false %}
+          
         {% else %}
           <details>
         {% endif %}
@@ -43,7 +43,7 @@ title: <__site__.Blog object at 0x00000286FB4A0F40>
         </ul>
         </details>
       {% endfor %} <!-- months -->
-
+      {% assign bOpenDetails = false %}
       </details>
       <br>
     {% endfor %}    <!-- years -->
