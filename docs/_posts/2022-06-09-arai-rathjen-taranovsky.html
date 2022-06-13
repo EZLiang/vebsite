@@ -1,0 +1,112 @@
+---
+layout: post
+title: Arai, Rathjan, and Taranovsky
+categories: math ordinals googology
+mathjax: true
+---
+
+<p>
+    There's a 2009 article by Arai on interated recursive Mahloness. The main idea of the paper is that stronger systems of reflection can be analysed in terms of iterated $\Pi_2$-reflection.
+</p>
+
+<p>
+    In section 5, Arai writes the following:
+    <blockquote>
+        A $\Pi_3$-reflecting ordinal $K$ is understood to be $<\varepsilon_{K+1}$[-ply]-recursively Mahlo.
+    </blockquote>
+    The implication here is that in terms of strength, the existence of a $\Pi_3$-reflecting is <em>equivalent</em> to the existence of a $K$ that is $<\varepsilon_{K+1}$-ply-recursively Mahlo.
+</p>
+
+<p>
+    So a $\Pi_3$-reflecting is equivalent, in some sense, to a $K$ that is $F(\varepsilon_{K+1})$-ply-recursively Mahlo, were $F(\alpha)=\alpha$. Now the question is: what are the &lsquo;Arai functions&rsquo; $F$ for higher reflecting ordinals?
+</p>
+
+<p id="target01">
+    For a $\Pi_2$-reflecting, the Arai function is (obviously) $1$. For a $\Pi_{n+1}$-reflecting, the arai function is $F(x)=x^{G(x)}$ where $G$ is the Arai function for $\Pi_n$-reflection.
+</p>
+
+<p>
+    The final cases are $X$-reflecting ordinals that are also $\Pi_n$-reflecting onto $Y$-reflecting ordinals. Suppose the Arai function for $X$-reflection is $x^{x^{\ldots^{G(x)}}}$ with $n-2$ $x$s and that for $Y$-reflection is $x^{x^{\ldots^{H(x)}}}$ with $n-2$ $x$s, then the Arai function for $X$-reflecting ordinals that are also $\Pi_n$-reflecting onto $Y$-reflecting ordinals is $x^{x^{\ldots^{H(x)+G(x)}}}$.
+</p>
+
+<h1>Collapsing functions</h1>
+
+<p>
+    Fortunately, Arai has a solution for that. First, we agree to notate Arai functions by the value of $F(K)$, where $K$ is some suitable large ordinal. Essentially, given an iterated Mahlo hierarchy $M$ and Skolem hulls $C$, define $\psi^\alpha_\kappa(\beta)$ to be the least ordinal $\pi$ that is in $M^\alpha$ and such that $C(\beta,\pi)\cap\kappa=\pi$.
+</p>
+
+<p>
+    Since defining $C$ is trivial, we focus on defining $M$. We see that the definition must somehow unpack the Arai function $F$ knowing $F(K)$. However, there are ordinals not described by Arai functions, such as $\kappa$ which are $\kappa$-ply-recursively Mahlo, and are important to reach the full strength of reflection. So we instead notate Arai functions by the value of $F(\varepsilon_{K+1})$. To obtain the Arai function from the value, the solution is the standard diagonalization trick:
+</p>
+
+<p>
+    $M^\alpha$ is the set of $\kappa$ such that:
+    <ul>
+        <li>$\kappa< K$</li>
+        <li>$C(\alpha,\kappa)\cap K=\kappa$</li>
+        <li>For all $\beta\in C(\alpha,\kappa)\cap\alpha$, $\kappa$ is $\Pi_2$-reflecting on $M^\beta$</li>
+    </ul>
+</p>
+
+<p>
+    For completeness, we also define the Skolem hulls $C(\alpha,\kappa)$ as the colsure of $\kappa\cup\{0,K,\varepsilon_{K+1}\}$ under:
+    <ul>
+        <li>$\beta+\gamma$</li>
+        <li>$\omega^\beta$</li>
+        <li>$\psi^\beta_\kappa(\gamma)$, provided $\beta,\gamma<\alpha$</li>
+    </ul>
+</p>
+
+<p>
+    If we restrict our ordinals to be below $\varepsilon_{K+1}$, then <em>voil&#x00E0;</em>, we have rediscovered Rathjen's $\Psi$, modulo &ldquo;technical convenience&rdquo; (Rathjen's wording).
+</p>
+
+<h1>Degrees of Reflection</h1>
+
+<p>
+    Those of you familiar with Taranovsky may have noticed a resemblance between the Arai function assignments <a href="#target01">above</a> and Taranovsky's Degrees of Reflection. Indeed, if the Arai function is $F$, then the Taranovsky degree is $\Omega^{F(\Omega)}$.
+</p>
+
+<p>
+    Thus, we can use this to analyse DoR. Note that both DoR and our $\Pi_n$-ref OCF both have additional structure beyond the Arai functions.
+</p>
+
+<p>
+    In our OCF, an Arai function is coded as $F(\varepsilon_{\Omega+1})$, and in Taranovsky's, it is coded as $\Omega^{F(\Omega)}$. For the Arai functions corresponding to basic reflection, the former is much larger than the latter, so it seems plausible that DoR misses too much structure to reach $\Pi_n$-ref. Consider the original degrees of reflection. Then the degrees range over precisely the same range as Arai and Rathjen use to analyse $\Pi_3$-ref. Thus, the strength of raw DoR is probably $\Pi_3$-ref. However, using Taranovsky's suggestion to use Veblen's function with DoR makes $F(\varepsilon_{\Omega+1})\approx\Omega^{F(\Omega)}$ for most functions $F$ under consideration, so Taranovsky's claims in this case are most likely correct, though the assignments may need to be lowered.
+</p>
+
+<h2>Degrees of Reflection ordinal assignments (conjectural)</h2>
+
+<p>
+    Based on the previous section, we construct a function $C$ which, conjecturally, models the DoR notation system. We use Taranovskian notation.
+</p>
+
+<p>
+    Skolem hulls $H(a,b)$ are defined as the closure of $b\cup\{0,\Omega\}$ under $C$ with first argument below $a$ and $O$ provided the output is above $\Omega$.
+</p>
+
+<p>
+    Define hirarchies $M(a)$ as the set of $b<\Omega$ such that:
+    <ul>
+        <li>$H(a,b)\cap\Omega=b$</li>
+        <li>For all $c\in H(a,b)\cap a$, $b$ is $\Pi_2$-reflecting on $M(c)$</li>
+    </ul>
+</p>
+
+<p>
+    $C(a,b)$ is the least element of $M(a)$ that is greater than $b$.
+</p>
+
+<p>
+    Of course this assignment is suboptimal&ndash;it does not use limits, so the outputs of $C$ are above $\omega_1^{CK}$. However, modifying it to use limits and yield ordinals below $\omega_1^{CK}$ decreases the simplicity.
+</p>
+
+<h1>References</h1>
+
+<ol id="bibliography">
+    <li id="arai09"><a href="https://arxiv.org/abs/1005.1987v1">Arai, Toshiyasu. "Iterating the Recursively Mahlo Operations" (2009).</a></li>
+    <li id="rat93"><a href="http://www1.maths.leeds.ac.uk/~rathjen/Ehab.pdf">Rathjen, Michael. "Proof Theory of Reflection" (1993).</a></li>
+    <li id="tar14"><a href="http://web.mit.edu/dmytro/www/other/OrdinalNotation.htm#A4">Taranovsky, Dmytro. "Ordinal Notation" (2014).</a></li>
+</ol>
+
+<script>MathJax={tex: {inlineMath: [["$", "$"]]}}</script>
