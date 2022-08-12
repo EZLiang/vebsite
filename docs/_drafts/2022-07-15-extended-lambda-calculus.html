@@ -1,0 +1,74 @@
+---
+layout: post
+title: Extended lambda calculus
+categories: math lambda
+mathjax: true
+---
+$\newcommand{\impl}{\rightarrow}\newcommand{\impr}{\nleftarrow}$
+
+<p>
+    As we all know, the function type $A\impl B$ corresponds to implication. We can make the lambda calculus more symmetric by adding a dual function type $A\impr B$.
+</p>
+
+<p>
+    Functions in types correspond to those types being true. Symmetrically, we should have a dual function in a type if that type is false.
+</p>
+
+<p>
+    The rules for function applications are derived from generalized modus ponens. By workign through the cases, one finds the following rules:
+    <ul>
+        <li>If $a$ is a function of type $A$ and $b$ is a function of type $A\impl B$ then $a b$ ia a function of type $B$.</li>
+        <li>If $a$ is a dual function of type $A$ and $b$ is a dual function of type $A\impr B$ then $ab$ is a dual function of type $B$.</li>
+    </ul>
+</p>
+
+<p>
+    The lambda-constructors are the analogues of the deduction theorem:
+    <ul>
+        <li>
+            $\lambda a:A.b$: a function of type $A\impl B$
+        <br />
+            "Given $A$ leads to $B$, deduce $A$ implies $B$"
+        <br />
+            Suppose $b$, a function, has type $B$ given $a$, a function, has type $A$. Then form $\lambda a:A.b$.
+        </li>
+        <li>
+            $[a,\overline b]$: a function of type $A\impr B$
+        <br />
+            "Given $A$ is true and $B$ is false, deduce $A\impr B$"
+        <br />
+            This can be formed given any function and dual function.
+        </li>
+        <li>
+            $[\overline a,b]$: a dual function of type $A\impl B$
+        <br />
+            "Given $A$ is false and $B$ is true, deduce $A\impl B$ is false"
+        <br />
+            This can be formed given any function and dual function.
+        </li>
+        <li>
+            $\overline\lambda a:A.b$: a dual function of type $A\impr B$
+        <br />
+            dual of "Given $A$ leads to $B$, deduce $A$ implies $B$"
+        <br />
+            Suppose $b$, a dual function, has type $B$ given $a$, another dual function, has type $A$. Then form $\overline\lambda a:A.b$.
+        </li>
+    </ul>
+</p>
+
+<p>
+    Reduction rules: the outcome of modus ponens
+    <ul>
+        <li>
+            Let $\lambda a:A.b$ be a function and $c$ be a function of type $A$. Then $(\lambda a:A.b) c=b[a/c]$.
+        </li>
+        <li>
+            Dually, let $\overline\lambda a:A.b$ be a dual function and $c$ bea dual function of type $A$. Then $(\overline\lambda a:A.b) c=b[a/c]$.
+        </li>
+    </ul>
+</p>
+
+
+<script>MathJax={tex: {inlineMath: [["$", "$"]]}}</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
